@@ -89,7 +89,7 @@ var aList_all = [{
 }, {
   'count': 38,
   'date': '2019-05-12'
-}, ];
+},];
 
 let aCount = [];
 let aDate = [];
