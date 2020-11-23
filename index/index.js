@@ -36,11 +36,13 @@ $("#logout").on("click", function () {
         btn: ['取消', '确定'],//可以无限个按钮
     },
         function (index) {
+            // 第一个按钮
             // 跳转回本页面的方式，页面会有刷新，用户体验不好，下边的方法直接关闭弹窗
             // location.href = "/index.html";
             layer.close(index);
         },
         function (index) {
+            // 第二个按钮
             // 退出即跳转到登录页面
             location.href = "/login.html";
             // 退出即把token删除
@@ -63,3 +65,15 @@ if (!localStorage.getItem("token")) {
 //         location.href = '/login.html';
 //     }
 // }
+
+
+
+// 一个想法
+// $("#touxaing1").on("click", function () {
+//     console.log(1);
+//     $("#touxiang").click();
+//     location.href="/user/avatar/avatar.html"
+// })
+// $("#touxiang").on("click", function () {
+//     console.log(2);
+// })

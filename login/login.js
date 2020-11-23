@@ -63,6 +63,29 @@ $("#zc").on("submit", function (e) {
     // })  
 })
 // -----------------------------------------------------------登录
+// enter键登录
+$("#dl").on("keyup", function (e) {
+    if (e.keyCode == 13) {
+        // console.log(1);
+        var params = $(this).serialize();
+        $.ajax({
+            type: "post",
+            url: "/api/login",
+            data: params,
+            success: function (res) {
+                // 登陆成功或失败，弹窗显示
+                layer.msg(res.message);
+                if (res.status == 0) {
+                    // console.log(res);
+                    //提交成功后，把获取到的token手动保存在本地
+                    localStorage.setItem("token", res.token);
+                    location.href = "/index.html";
+                }
+            }
+        })
+    }
+})
+// 鼠标登陆
 $("#dl").on("submit", function (e) {
     e.preventDefault();
     var params = $(this).serialize();
@@ -74,7 +97,7 @@ $("#dl").on("submit", function (e) {
             // 登陆成功或失败，弹窗显示
             layer.msg(res.message);
             if (res.status == 0) {
-                console.log(res);
+                // console.log(res);
                 //提交成功后，把获取到的token手动保存在本地
                 localStorage.setItem("token", res.token);
                 location.href = "/index.html";
